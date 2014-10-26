@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class FirstActivity extends Activity {
@@ -16,32 +17,22 @@ public class FirstActivity extends Activity {
         setContentView(R.layout.activity_first);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.first, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
+    public static final String IMIE_KEY= "name";
     public void goToSecondAction(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
+        String someValue = "Jan";
+        intent.putExtra(IMIE_KEY, someValue);
 
-        String someValue = "My custom String"; //do intentu możemy przekazywać Stringi, inty, lub typy parcelable
-        intent.putExtra("someKey",someValue);   // someKey - klucz który musi być użyty też w drugim activity
+        startActivityForResult(intent, 1);
+    }
 
-        startActivity(intent);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bundle extras = data.getExtras();
+        extras.getStringArrayList(IMIE_KEY);
+
+        Toast.makeText(this, "Some text", Toast.LENGTH_LONG).show();
+
     }
 }

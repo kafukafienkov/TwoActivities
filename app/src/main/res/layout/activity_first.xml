@@ -9,15 +9,15 @@
     tools:context=".FirstActivity">
 
     <TextView
-        android:text="@string/title_first_activity"
+        android:text="title_first_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView" />
 
     <Button
+        android:text="Go to second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to second"
         android:onClick="goToSecondAction"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textView" />

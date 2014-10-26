@@ -9,6 +9,7 @@
     tools:context="pl.szkolenieandroid.twoactivities.SecondActivity">
 
     <TextView
+
         android:text="@string/title_second_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goToFirstActivity"
+        android:onClick="backToFirst"
         android:text="Go to first"
         android:layout_alignTop="@+id/textView"
         android:layout_toEndOf="@+id/textView" />
